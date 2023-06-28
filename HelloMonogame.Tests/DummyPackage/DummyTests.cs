@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 
 namespace HelloMonogame.Tests.DummyPackage
@@ -42,9 +43,11 @@ namespace HelloMonogame.Tests.DummyPackage
         {
             // Tests can also be repeated N times.
             // Here, this test will be repeated 100 times.
+            Console.WriteLine("Run test");
 
             // Write some test code.
             // e.g. Assert.AreEqual(expectedValue, actualValue);
+            Assert.AreEqual(1, 1);
         }
     }
 }

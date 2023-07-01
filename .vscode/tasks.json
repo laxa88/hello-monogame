@@ -5,7 +5,10 @@
       "label": "buildDesktopGL",
       "command": "dotnet",
       "type": "process",
-      "args": ["build", "${workspaceFolder}\\HelloMonogame.csproj"],
+      "args": [
+        "build",
+        "${workspaceFolder}\\HelloMonogame\\HelloMonogame.csproj"
+      ],
       "problemMatcher": "$msCompile"
     }
   ]

@@ -6,6 +6,9 @@ namespace HelloMonogame
 {
     public class Game1 : Game
     {
+        private SpriteFont font;
+        private int score = 0;
+
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
@@ -28,12 +31,25 @@ namespace HelloMonogame
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            font = Content.Load<SpriteFont>("MyFont");
         }
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            KeyboardState state = Keyboard.GetState();
+
+            if (
+                GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed
+                || state.IsKeyDown(Keys.Escape)
+            )
+            {
                 Exit();
+            }
+
+            if (state.IsKeyDown(Keys.Up))
+            {
+                score++;
+            }
 
             // TODO: Add your update logic here
 
@@ -45,6 +61,14 @@ namespace HelloMonogame
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            _spriteBatch.Begin();
+            _spriteBatch.DrawString(
+                font,
+                "hello world: " + score,
+                new Vector2(100, 100),
+                Color.Black
+            );
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }

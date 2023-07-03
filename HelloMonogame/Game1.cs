@@ -7,6 +7,7 @@ namespace HelloMonogame
     public class Game1 : Game
     {
         private SpriteFont font;
+        private SpriteFont customFont;
         private int score = 0;
 
         private GraphicsDeviceManager _graphics;
@@ -32,6 +33,7 @@ namespace HelloMonogame
 
             // TODO: use this.Content to load your game content here
             font = Content.Load<SpriteFont>("MyFont");
+            customFont = Content.Load<SpriteFont>("MyCustomFont");
         }
 
         protected override void Update(GameTime gameTime)
@@ -64,8 +66,14 @@ namespace HelloMonogame
             _spriteBatch.Begin();
             _spriteBatch.DrawString(
                 font,
-                "hello world: " + score,
+                "hello world 1: " + score,
                 new Vector2(100, 100),
+                Color.Black
+            );
+            _spriteBatch.DrawString(
+                customFont,
+                "hello world 2: " + score,
+                new Vector2(100, 130),
                 Color.Black
             );
             _spriteBatch.End();

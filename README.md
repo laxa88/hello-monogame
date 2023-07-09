@@ -2,11 +2,17 @@
 
 ## Learning materials
 
-- Adding text: <http://rbwhitaker.wikidot.com/monogame-drawing-text-with-spritefonts>
+- MonoGame 2D tutorials: <http://rbwhitaker.wikidot.com/monogame-2d-tutorials>
 
 ## Setup
 
 Reference: [Learn MonoGame](https://learn-monogame.github.io/how-to/get-started/)
+
+Summary:
+
+- Install [.NET SDK 3.1](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-3.1.32-windows-x64-installer?cid=getdotnetcore) (minimum for MonoGame)
+- Install [VS Code](https://code.visualstudio.com) (IDE)
+- Install [C# VS Code plugin](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 
 ## Run
 
@@ -105,3 +111,21 @@ mgcb-editor --register
 Note: To uninstall, replace `install` with `uninstall`
 
 Install [VSCode MGCB plugin](https://marketplace.visualstudio.com/items?itemName=mgcb-vscode.mgcb-vscode).
+
+## Release
+
+Release for Windows, Mac, or Linux:
+
+```bash
+dotnet publish -c Release -r win-x64 -o artifacts/windows --self-contained
+dotnet publish -c Release -r osx-x64 -o artifacts/osx --self-contained
+dotnet publish -c Release -r linux-x64 -o artifacts/linux --self-contained
+```
+
+## Troubleshooting
+
+In cases dependencies do not work, try this to reinstall:
+
+```bash
+dotnet restore
+```

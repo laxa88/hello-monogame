@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+using TextureAtlas;
+
 namespace HelloMonogame
 {
     public class Game1 : Game
@@ -10,6 +12,7 @@ namespace HelloMonogame
         private SpriteFont customFont;
         private int score = 0;
         private Texture2D myTexture;
+        private AnimatedSprite animatedSprite;
 
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
@@ -36,7 +39,12 @@ namespace HelloMonogame
             font = Content.Load<SpriteFont>("MyFont");
             customFont = Content.Load<SpriteFont>("MyCustomFont");
 
+            // single image
             myTexture = Content.Load<Texture2D>("SmileyWalk");
+
+            // animated image
+            Texture2D texture = Content.Load<Texture2D>("SmileyWalk");
+            animatedSprite = new AnimatedSprite(texture, 4, 4);
         }
 
         protected override void Update(GameTime gameTime)
@@ -57,6 +65,7 @@ namespace HelloMonogame
             }
 
             // TODO: Add your update logic here
+            animatedSprite.Update();
 
             base.Update(gameTime);
         }
@@ -79,7 +88,8 @@ namespace HelloMonogame
                 new Vector2(100, 130),
                 Color.Black
             );
-            _spriteBatch.Draw(myTexture, new Rectangle(300, 100, 300, 300), Color.White);
+            _spriteBatch.Draw(myTexture, new Rectangle(300, 150, 100, 100), Color.White);
+            animatedSprite.Draw(_spriteBatch, new Vector2(200, 300));
             _spriteBatch.End();
 
             base.Draw(gameTime);

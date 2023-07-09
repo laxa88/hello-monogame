@@ -9,6 +9,7 @@ namespace HelloMonogame
         private SpriteFont font;
         private SpriteFont customFont;
         private int score = 0;
+        private Texture2D myTexture;
 
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
@@ -34,6 +35,8 @@ namespace HelloMonogame
             // TODO: use this.Content to load your game content here
             font = Content.Load<SpriteFont>("MyFont");
             customFont = Content.Load<SpriteFont>("MyCustomFont");
+
+            myTexture = Content.Load<Texture2D>("SmileyWalk");
         }
 
         protected override void Update(GameTime gameTime)
@@ -76,6 +79,7 @@ namespace HelloMonogame
                 new Vector2(100, 130),
                 Color.Black
             );
+            _spriteBatch.Draw(myTexture, new Rectangle(300, 100, 300, 300), Color.White);
             _spriteBatch.End();
 
             base.Draw(gameTime);

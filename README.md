@@ -1,5 +1,9 @@
 # Experiments in MonoGame
 
+## Learning materials
+
+- Adding text: <http://rbwhitaker.wikidot.com/monogame-drawing-text-with-spritefonts>
+
 ## Setup
 
 Reference: [Learn MonoGame](https://learn-monogame.github.io/how-to/get-started/)
